@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkrfumho38e3w"]
+
+[ext_resource type="Script" path="res://scripts/torch.gd" id="1_win4j"]
+[ext_resource type="PackedScene" uid="uid://dbbx6dey1kpkl" path="res://assets/torch.glb" id="2_nprrc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_01pdp"]
+radius = 0.226545
+height = 1.33099
+
+[node name="torch" type="StaticBody3D" groups=["pick_up"]]
+script = ExtResource("1_win4j")
+
+[node name="torch" parent="." instance=ExtResource("2_nprrc")]
+transform = Transform3D(0.078027, 0, 0, 0, 0.078027, 0, 0, 0, 0.078027, 0, 0, -0.271182)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="torch"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.708961, 0, 0, 0, -3.09897e-08, -0.708961, 0, 0.708961, -3.09897e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_01pdp")

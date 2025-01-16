@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://esr1gah15d58"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_qe408"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yhdnk"]
+height = 0.280225
+radius = 0.23917
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dvswc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlca4"]
+albedo_color = Color(1, 0.24, 0.24, 1)
+
+[node name="Tin" type="RigidBody3D" groups=["highlight", "pick_up"]]
+collision_layer = 3
+script = ExtResource("1_qe408")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_yhdnk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.483201, 0, 0, 0, 0.158336, 0, 0, 0, 0.483201, 0.00425887, 1.19209e-07, -0.000515103)
+mesh = SubResource("CylinderMesh_dvswc")
+surface_material_override/0 = SubResource("StandardMaterial3D_rlca4")

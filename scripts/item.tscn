@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwu7yw2fyopwm"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_a3efp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8u8m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juooh"]
+albedo_color = Color(0.603922, 0.647059, 0.533333, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_xaxi6"]
+
+[node name="Item" type="RigidBody3D" groups=["highlight", "pick_up"]]
+collision_layer = 3
+script = ExtResource("1_a3efp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.04735, 0, 0, 0, 1.04735, 0, 0, 0, 1.04735, 0, 0, 0)
+shape = SubResource("BoxShape3D_h8u8m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_juooh")
+mesh = SubResource("PrismMesh_xaxi6")

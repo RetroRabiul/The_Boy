@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1qvgsxm61fly"
-path="res://.godot/imported/house (1).glb-18457f85afbdb3176d3bb98a4af70444.scn"
+uid="uid://b1gpvm0yhxqfa"
+path="res://.godot/imported/tissue & holder.glb-245167d7e30487c779a5fe9b11be12cd.scn"
 
 [deps]
 
-source_file="res://assets/house (1).glb"
-dest_files=["res://.godot/imported/house (1).glb-18457f85afbdb3176d3bb98a4af70444.scn"]
+source_file="res://New folder (2)/tissue & holder.glb"
+dest_files=["res://.godot/imported/tissue & holder.glb-245167d7e30487c779a5fe9b11be12cd.scn"]
 
 [params]
 

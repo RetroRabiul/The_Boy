@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1qvgsxm61fly"
-path="res://.godot/imported/house (1).glb-18457f85afbdb3176d3bb98a4af70444.scn"
+uid="uid://cx6u5y4bo06e"
+path="res://.godot/imported/soundbox.glb-6c299fe7124eefcdddca36405b5fc923.scn"
 
 [deps]
 
-source_file="res://assets/house (1).glb"
-dest_files=["res://.godot/imported/house (1).glb-18457f85afbdb3176d3bb98a4af70444.scn"]
+source_file="res://New folder (2)/soundbox.glb"
+dest_files=["res://.godot/imported/soundbox.glb-6c299fe7124eefcdddca36405b5fc923.scn"]
 
 [params]
 

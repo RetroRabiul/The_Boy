@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=4 uid="uid://c6u1qx5qun2ag"]
+
+[ext_resource type="Texture2D" uid="uid://tls3el3763ag" path="res://New folder (2)/tv_haa.png" id="1_mqhtu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iryrb"]
+resource_name = "Material.005"
+cull_mode = 2
+albedo_color = Color(0.265321, 0.265321, 0.265321, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wpd6k"]
+_surfaces = [{
+"aabb": AABB(-0.0499753, -1, -2.05421, 0.0999506, 2, 4.10842),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAADAAEABwABAAMAAAACAAMAAgAHAAMABAAAAAEAAgAAAAQABwAFAAEABAABAAUAAgAGAAcAAgAEAAYABgAIAAcABwALAAUABwAIAAsABQAKAAQABQALAAoABAAJAAYABgAJAAgABAAKAAkACwAOAAoACQAMAAgACAAPAAsACwAPAA4ACAAMAA8ACgAOAA0ACgANAAkADQAOAA8ACQANAAwADQAPAAwA"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("4LJMvQAAgL8ueANA4LJMvQAAgD8ueANA4LJMvQAAgL8ueAPA4LJMvQAAgD8ueAPA4LJMPQAAgL8ueANA4LJMPQAAgD8ueANA4LJMPQAAgL8ueAPA4LJMPQAAgD8ueAPA4LJMPW1ScT/tDv2/4LJMPW1Scb/tDv2/4LJMPW1Scb/tDv0/4LJMPW1ScT/tDv0/49DaPG1ScT/tDv2/49DaPG1Scb/tDv2/49DaPG1Scb/tDv0/49DaPG1ScT/tDv0/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_27cc8"]
+resource_name = "tv_Cube_010"
+_surfaces = [{
+"aabb": AABB(-0.0499753, -1, -2.05421, 0.0999506, 2, 4.10842),
+"attribute_data": PackedByteArray("AADAPgAAgD8AAAA+AACAPgAAwD4AAAAAAAAgPwAAgD8AACA/AAAAAAAAYD8AAIA+AADAPgAAQD8AAAA+AAAAPwAAwD4AAEA/AAAgPwAAQD8AACA/AABAPwAAYD8AAAA/AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+"),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAAJAAMAAAAGAAkACAAVAAoACAATABUAEQAgAA4ADgAgAB0AEQAjACAADgAdABQAFwAjABEAFAAdABoAFwAaACMAFAAaABcADQAEAA8ADQACAAQABwAMABIABwABAAwAFgAFAAsAFgAQAAUAIgAqAB4AIgAuACoAKQAvACYAKQAsAC8AHwAoABwAHwArACgAGAAtACEAGAAkAC0AGwAlABkAGwAnACUA"),
+"material": SubResource("StandardMaterial3D_iryrb"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("4LJMvQAAgL8ueANA4LJMvQAAgL8ueANA4LJMvQAAgL8ueANA4LJMvQAAgD8ueANA4LJMvQAAgD8ueANA4LJMvQAAgD8ueANA4LJMvQAAgL8ueAPA4LJMvQAAgL8ueAPA4LJMvQAAgL8ueAPA4LJMvQAAgD8ueAPA4LJMvQAAgD8ueAPA4LJMvQAAgD8ueAPA4LJMPQAAgL8ueANA4LJMPQAAgL8ueANA4LJMPQAAgL8ueANA4LJMPQAAgD8ueANA4LJMPQAAgD8ueANA4LJMPQAAgD8ueANA4LJMPQAAgL8ueAPA4LJMPQAAgL8ueAPA4LJMPQAAgL8ueAPA4LJMPQAAgD8ueAPA4LJMPQAAgD8ueAPA4LJMPQAAgD8ueAPA4LJMPW1ScT/tDv2/4LJMPW1ScT/tDv2/4LJMPW1ScT/tDv2/4LJMPW1Scb/tDv2/4LJMPW1Scb/tDv2/4LJMPW1Scb/tDv2/4LJMPW1Scb/tDv0/4LJMPW1Scb/tDv0/4LJMPW1Scb/tDv0/4LJMPW1ScT/tDv0/4LJMPW1ScT/tDv0/4LJMPW1ScT/tDv0/49DaPG1ScT/tDv2/49DaPG1ScT/tDv2/49DaPG1ScT/tDv2/49DaPG1Scb/tDv2/49DaPG1Scb/tDv2/49DaPG1Scb/tDv2/49DaPG1Scb/tDv0/49DaPG1Scb/tDv0/49DaPG1Scb/tDv0/49DaPG1ScT/tDv0/49DaPG1ScT/tDv0/49DaPG1ScT/tDv0/AAD/f/9/////fwAA////v/9//3//f///AAD/f/9/////f/9//3////9///8AAP+/AAD/f/9/////fwAA////v///////f///AAD/f/9//////////3////9///8AAP+//38AAP///7//f/9//3///////3////+//3//f/9/////f///AAD/v////3////+//38AAP///7///////3///////3////+///////9/////f///AAD/v////3////+//38AAP///7//f/9/////P////3////+//3//f////z//f///////v////3////+//////////7//f///////v////3////+//38AAP///7//////////v////3////+//38AAP///7//f/9/////P////3//f////3//f////z//f///////v////3//f////////////7//f///////v////3//f////38AAP///7//////////v////3//f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wpd6k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mr2hi"]
+resource_name = "Material.006"
+cull_mode = 2
+albedo_texture = ExtResource("1_mqhtu")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dl1ts"]
+_surfaces = [{
+"aabb": AABB(0.0267109, -0.942664, -1.97702, 1e-05, 1.88533, 3.95404),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AQADAAAAAQACAAMA"),
+"name": "Material.006",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAD//wAAAAD/////AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6c6v6"]
+resource_name = "tv_Cube_011"
+_surfaces = [{
+"aabb": AABB(0.0267109, -0.942664, -1.97702, 1e-05, 1.88533, 3.95404),
+"attribute_data": PackedByteArray("///1f+3/1/8EgP//B4AJgA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AQADAAAAAQACAAMA"),
+"material": SubResource("StandardMaterial3D_mr2hi"),
+"name": "Material.006",
+"primitive": 3,
+"uv_scale": Vector4(2.0003, 2.00095, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD//wAA/78AAAAAAAD/vwAAAAD///+/AAD//////78EgAkABYAMAAiAEgAHgBAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dl1ts")
+
+[node name="tv" type="Node3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("ArrayMesh_27cc8")
+skeleton = NodePath("")
+
+[node name="Cube_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00865361, 1, 0)
+mesh = SubResource("ArrayMesh_6c6v6")
+skeleton = NodePath("")

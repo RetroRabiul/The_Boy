@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqte0x620pvsd"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_gem8m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8u8m"]
+size = Vector3(0.871307, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_38a6g"]
+
+[node name="Item" type="RigidBody3D" groups=["highlight", "pick_up"]]
+collision_layer = 3
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_gem8m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.682909, 0, 0, 0, 0.682909, 0, 0, 0, 0.682909, 0.0168329, 0, 0)
+shape = SubResource("BoxShape3D_h8u8m")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.849798, 0, 0, 0, 0.760776, 0, 0, 0, 0.931531, 0, 0, 0)
+mesh = SubResource("BoxMesh_38a6g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.842662, 0, 0, 0, 0.868253, 0, 0, 0, 0.120238, 0, 0.710677, -0.406341)
+mesh = SubResource("BoxMesh_38a6g")
