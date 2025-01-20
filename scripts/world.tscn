@@ -1,6 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://dwv3ektg3uy0j"]
+[gd_scene load_steps=34 format=3 uid="uid://dwv3ektg3uy0j"]
 
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_511df"]
+[ext_resource type="Script" uid="uid://bftpwqo8ughr1" path="res://scripts/world.gd" id="1_511df"]
 [ext_resource type="PackedScene" uid="uid://d3c51q2xc850u" path="res://house (1).tscn" id="2_wmvfx"]
 [ext_resource type="PackedScene" uid="uid://cjcyv7xbiyb2u" path="res://scripts/player.tscn" id="3_0rdyr"]
 [ext_resource type="PackedScene" uid="uid://bkrfumho38e3w" path="res://scripts/torch.tscn" id="4_ak7s3"]
@@ -24,8 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://cqte0x620pvsd" path="res://scripts/chair.tscn" id="22_relv0"]
 [ext_resource type="PackedScene" uid="uid://cscj02s1vf8jm" path="res://New folder (2)/Table Tv.tscn" id="22_s1ln5"]
 [ext_resource type="PackedScene" uid="uid://esr1gah15d58" path="res://scripts/tin.tscn" id="23_4k1jo"]
-[ext_resource type="Script" path="res://scripts/floor_boards.gd" id="24_rvanr"]
+[ext_resource type="Script" uid="uid://mirx5c6ugg54" path="res://scripts/floor_boards.gd" id="24_rvanr"]
 [ext_resource type="AudioStream" uid="uid://v58qhe2pxaf8" path="res://assets/audio/wood_crack.mp3" id="25_bjr7n"]
+[ext_resource type="PackedScene" uid="uid://b85llfe6bih0e" path="res://scence/under_ground_house.tscn" id="27_uaesy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_38ch3"]
 
@@ -52,7 +53,7 @@ script = ExtResource("1_511df")
 environment = SubResource("Environment_mhvbr")
 
 [node name="player" parent="." instance=ExtResource("3_0rdyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66783, 2.01167, -8.09802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22595, 5.16269, -4.28801)
 
 [node name="map" type="Node3D" parent="."]
 
@@ -163,7 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89479, 1.5517, -12.3973)
 [node name="TempKitchen" type="Node3D" parent="."]
 
 [node name="Floorboards" type="CSGBox3D" parent="TempKitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2679, 1.10565, -9.43034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2679, 1.10565, -9.46363)
 use_collision = true
 size = Vector3(2.60999, 0.146973, 3.39175)
 material = SubResource("StandardMaterial3D_474tf")
@@ -179,7 +180,7 @@ size = Vector3(0.453705, 0.144653, 2.63147)
 material = SubResource("StandardMaterial3D_474tf")
 
 [node name="BasementFloor" type="CSGBox3D" parent="TempKitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08594, -2.4153, -13.9919)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08594, -24.9253, -13.9919)
 use_collision = true
 size = Vector3(49.7246, 1, 50.946)
 material = SubResource("StandardMaterial3D_5n31f")
@@ -187,5 +188,8 @@ material = SubResource("StandardMaterial3D_5n31f")
 [node name="Tin" parent="TempKitchen" instance=ExtResource("23_4k1jo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5357, 5.00317, -9.48703)
 pick_signal = "tin_pick"
+
+[node name="UnderGroundHouse" parent="." instance=ExtResource("27_uaesy")]
+transform = Transform3D(-3.66984e-08, 0, -0.839563, 0, 0.839563, 0, 0.839563, 0, -3.66984e-08, 5.17278, -4.76671, -12.8019)
 
 [connection signal="finished" from="TempKitchen/Floorboards/FloorboardsCrack" to="TempKitchen/Floorboards" method="_on_floorboards_crack_finished"]

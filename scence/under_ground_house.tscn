@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b85llfe6bih0e"]
+
+[ext_resource type="PackedScene" uid="uid://c8cplp6xl0sqw" path="res://assets/UnderGroundHouse.glb" id="1_yqf3t"]
+[ext_resource type="Script" uid="uid://dnrtptxss8vaj" path="res://scripts/ladder_area.gd" id="2_8v0na"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8v0na"]
+size = Vector3(1.91016, 0.20752, 1.93823)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rixsy"]
+size = Vector3(1.82214, 1.58899, 0.0936279)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yqf3t"]
+size = Vector3(5.09044, 5.93625, 0.596191)
+
+[node name="UnderGroundHouse" instance=ExtResource("1_yqf3t")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.173048, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664063, -0.39624, 0.0740967)
+shape = SubResource("BoxShape3D_8v0na")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Plane" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.300955, 0.673096, -1.57005)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281799, -0.0910034, 0.453186)
+shape = SubResource("BoxShape3D_rixsy")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Plane" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.300955, 0.673096, 0.708075)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281799, 0.0799561, 0.453186)
+shape = SubResource("BoxShape3D_rixsy")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Plane" index="3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.642116, 0.673096, -0.277157)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281799, 0.0799561, 0.453186)
+shape = SubResource("BoxShape3D_rixsy")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Plane" index="4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.51826, 0.673096, -0.277157)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281799, 0.0799561, 0.453186)
+shape = SubResource("BoxShape3D_rixsy")
+
+[node name="LadderArea" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13867, 2.12188, -4.72086)
+script = ExtResource("2_8v0na")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LadderArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901918, 2.46813, -0.201904)
+shape = SubResource("BoxShape3D_yqf3t")
+
+[connection signal="body_entered" from="LadderArea" to="LadderArea" method="_on_body_entered"]
+[connection signal="body_exited" from="LadderArea" to="LadderArea" method="_on_body_exited"]

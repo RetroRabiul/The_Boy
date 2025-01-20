@@ -20,7 +20,7 @@ var lean_weight: float = 0.05
 @onready var hud = %HUD
 var look_rotation: Vector3 = Vector3.ZERO
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 30.5
 var sensitivity = 0.2
 
 
@@ -31,6 +31,11 @@ var held_item = null
 
 var show_mouse: bool = true
 
+var on_ladder: bool = false
+
+var gravity_vec:Vector3 = Vector3.ZERO
+
+var jump = 5
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -65,32 +70,55 @@ func _physics_process(delta: float) -> void:
 	
 	head.rotation_degrees.x = look_rotation.x
 	rotation_degrees.y = look_rotation.y
+	
 
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		$AudioStreamPlayer3D.play()
-		$AudioStreamPlayer3D2.play()
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	var direction: Vector3
+	var h_rot = global_transform.basis.get_euler().y
+	var f_input = Input.get_action_strength("backward") - Input.get_action_strength("forward")
+	var h_input = Input.get_action_strength("right") - Input.get_action_strength("left")
+	
 
-	_wobble(input_dir, delta)
+	var gravity =  get_gravity()
+	
+	var head_dir: float = abs(head.rotation_degrees.x)
+	
+	if on_ladder and head_dir > 20.0:
+		
+		var ladder_dir = -1
+		if head.rotation_degrees.x < 0.0:
+			ladder_dir = 1
+		direction = Vector3(h_input,f_input*ladder_dir,0).rotated(Vector3.UP, h_rot).normalized()
+
+	else:
+
+	#jumping and gravity
+		if is_on_floor():
+			gravity_vec = Vector3.ZERO
+		else:
+			if not on_ladder:
+				gravity_vec -= Vector3.DOWN * gravity * delta
+		
+
+		#Jump
+		if Input.is_action_just_pressed("ui_accept"):
+				gravity_vec = Vector3.UP * jump
+		
+		direction = Vector3(h_input, 0, f_input).rotated(Vector3.UP, h_rot).normalized()
+
+	
+	velocity = direction  * SPEED
+	var movement = Vector3.ZERO
+	movement = velocity + gravity_vec
+	velocity = movement
+
 	move_and_slide()
 	_check_ray()
 	_handle_item()
+
+
 
 	
 func _input(event):
