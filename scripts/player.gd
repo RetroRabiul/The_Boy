@@ -129,6 +129,7 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			show_mouse = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
 	if show_mouse: return

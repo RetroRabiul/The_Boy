@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The_Boy"
-run/main_scene="res://scripts/world.tscn"
+run/main_scene="uid://dwv3ektg3uy0j"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://scripts/icon.svg"
 

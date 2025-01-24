@@ -53,7 +53,7 @@ script = ExtResource("1_511df")
 environment = SubResource("Environment_mhvbr")
 
 [node name="player" parent="." instance=ExtResource("3_0rdyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22595, 5.16269, -4.28801)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554918, 2.61312, -3.88447)
 
 [node name="map" type="Node3D" parent="."]
 
