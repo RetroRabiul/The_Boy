@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvmbm2gbjijr2"]
 
 [ext_resource type="Texture2D" uid="uid://d18aobxbwc4mk" path="res://assets/target.png" id="1_1636f"]
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_mnacm"]
+[ext_resource type="Script" uid="uid://dajo1ehgdh0f" path="res://scripts/hud.gd" id="1_mnacm"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -27,3 +27,20 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_1636f")
+
+[node name="Inventory" type="GridContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/v_separation = 20
+columns = 8

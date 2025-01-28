@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://gx0lek5lv6mw"]
+
+[ext_resource type="Script" uid="uid://cqc3relx0oyyy" path="res://scripts/item.gd" id="1_kgrdy"]
+[ext_resource type="Texture2D" uid="uid://boxubrh6ad3f5" path="res://assets/ui/box_inventory.png" id="2_kgrdy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yhdnk"]
+height = 0.280225
+radius = 0.23917
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgrdy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlca4"]
+albedo_color = Color(0.636406, 0.575299, 0.163907, 1)
+
+[node name="Box" type="RigidBody3D" groups=["highlight", "pick_up"]]
+collision_layer = 3
+script = ExtResource("1_kgrdy")
+item_name = "box"
+inventory_texture = ExtResource("2_kgrdy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_yhdnk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.335822, 0, 0, 0, 0.341867, 0, 0, 0, 0.335822, 0.00425887, 1.19209e-07, -0.000515103)
+mesh = SubResource("BoxMesh_kgrdy")
+surface_material_override/0 = SubResource("StandardMaterial3D_rlca4")

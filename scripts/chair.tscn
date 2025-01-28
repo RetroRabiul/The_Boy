@@ -7,7 +7,7 @@ size = Vector3(0.871307, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_38a6g"]
 
-[node name="Item" type="RigidBody3D" groups=["highlight", "pick_up"]]
+[node name="Chair" type="RigidBody3D" groups=["highlight", "pick_up"]]
 collision_layer = 3
 axis_lock_angular_x = true
 axis_lock_angular_z = true

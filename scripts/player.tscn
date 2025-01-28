@@ -52,8 +52,9 @@ script = ExtResource("2_e42vq")
 [node name="flashlight_sound" type="AudioStreamPlayer3D" parent="Camera/flashlight"]
 stream = ExtResource("3_kfgkm")
 
-[node name="HUD" parent="." instance=ExtResource("2_dbl15")]
+[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_dbl15")]
 unique_name_in_owner = true
+player = NodePath("..")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_vlcqi")

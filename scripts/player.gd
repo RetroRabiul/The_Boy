@@ -13,6 +13,7 @@ var t_bob: float = 0.0
 var lean_amount: float = 0.75
 var lean_weight: float = 0.05
 
+@export var world: Node3D
 
 @onready var head = $Camera
 @onready var use_ray = %UseRayCast
@@ -65,14 +66,11 @@ func _headbob(time)->Vector3:
 
 func _physics_process(delta: float) -> void:
 	
-	
 	if show_mouse: return
 	
 	head.rotation_degrees.x = look_rotation.x
 	rotation_degrees.y = look_rotation.y
 	
-
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction: Vector3
@@ -139,38 +137,79 @@ func _input(event):
 		look_rotation.x -= sensitivity * event.relative.y
 		look_rotation.x = clamp(look_rotation.x, -80, 50)
 
-
-
 	if Input.is_action_just_pressed("pick"):
 		if use_ray.is_colliding():
 			if use_ray.get_collider().is_in_group("pick_up"):
-				print(use_ray.get_collider().name)
+				#print(use_ray.get_collider().name)
 				_pick_up_item(use_ray.get_collider())
 				
 	if Input.is_action_just_pressed("drop"):
 		_throw_held_object()
+	
+	if Input.is_action_just_pressed("keep"):
+		_keep_item()
+#
+func _keep_item():
+	if held_item == null: return
+#		NOT HOLDING anything
+		
+	if not held_item.in_inventory: return
+#		item cannot be put in inventory
+		
+	_remove_held()
+
+func _remove_held():
+	held_item.queue_free()
+	held_item = null
+	joint.set_node_b(joint.get_path())
 
 
 func _pick_up_item(item):
 	if held_item != null: return
 	held_item = item
 	held_item.was_picked()
+	_add_item_to_inventory()
+	_item_to_hold_position()
+
+func _item_to_hold_position():
 	joint.set_node_b(held_item.get_path())
 	var grab_tween = create_tween()
 	grab_tween.tween_property(held_item, "global_position", joint.global_position, 0.5)
 
-
-
+func _add_item_to_inventory():
+	if hud.inventory_has_room():
+		if held_item.inventory_texture != null:
+			held_item.keep_me()
 
 
 func _throw_held_object():
 	if held_item == null: return
 	var obj:RigidBody3D = held_item
+	GlobalSignals.drop_item.emit(held_item.item_name)
+#	Remove item from HUD inventory
 	held_item = null
 	joint.set_node_b(joint.get_path())
 	obj.apply_central_impulse(-head.global_basis.z * throw_force * 2.0)
+	obj.set_collision_layer_value(2, true)
+	obj.in_inventory = false
 	
 	
+
+func item_from_inventory(item_name:String):
+	if held_item != null:
+		if held_item.in_inventory:
+#			Swap held item for new item from inventory
+			_remove_held()
+		else: return
+#			holding item that cannot be put in inventory
+	
+	var item_scene_main = load(world.inventory_items[item_name])	
+	var item_scene = item_scene_main.instantiate()
+	world.add_child(item_scene)
+	item_scene.global_position = joint.global_position
+	held_item = item_scene
+	held_item.from_inventory()
+	_item_to_hold_position()
 	
 
 	
