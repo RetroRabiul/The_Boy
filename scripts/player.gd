@@ -28,7 +28,7 @@ var sensitivity = 0.2
 
 var throw_force = 3.0
 var follow_speed = 20.0
-var held_item = null
+var held_item:RigidBody3D = null
 
 var show_mouse: bool = true
 
@@ -177,7 +177,7 @@ func _item_to_hold_position():
 	grab_tween.tween_property(held_item, "global_position", joint.global_position, 0.5)
 
 func _add_item_to_inventory():
-	if hud.inventory_has_room():
+	if hud.inventory_has_room(): 
 		if held_item.inventory_texture != null:
 			held_item.keep_me()
 

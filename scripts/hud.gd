@@ -4,9 +4,9 @@ extends Control
 @onready var target = %TextureRect
 @export var player:CharacterBody3D
 
-var inventory_item_scene = preload("res://scence/ui/inventory_item.tscn")
+var inventory_item_scene: PackedScene = preload("res://scence/ui/inventory_item.tscn")
 
-var max_inventory: int = 4
+var max_inventory: int = 5
 
 func _ready() -> void:
 	GlobalSignals.keep_item.connect(_add_inventory)
@@ -43,7 +43,7 @@ func target_state(state):
 	else:
 		target.modulate.a = 5.0
 
-func inventory_has_room()->bool:
+func inventory_has_room() -> bool:
 	var inventory_count: int =  %Inventory.get_child_count()
 	if inventory_count < max_inventory: 
 		return true
@@ -58,10 +58,11 @@ func _add_inventory(item_name: String, item_texture: Texture2D):
 	
 func _drop_item(item_name:String):
 	for item in %Inventory.get_children():
-		await get_tree().process_frame
-#		need to wait for frame to finish otherwise delte not updating
+
 		if item.item_name == item_name:
 			item.queue_free()
+			
+		await get_tree().process_frame
 	
 	set_inventory_index()
 	
@@ -69,3 +70,7 @@ func set_inventory_index():
 	var inventory_count = %Inventory.get_child_count()
 	for i in inventory_count:
 		%Inventory.get_child(i).set_index(i+1)
+
+
+		#await get_tree().process_frame
+#		need to wait for frame to finish otherwise delte not updating
